@@ -1,0 +1,28 @@
+1). 'npm init -y'
+    -> create  package.json file
+
+2). 'npm install gulp gulp-sass sass --save-dev'
+    -> install 'gulp' task runner for run task => 'gulp sass' task plugin for gulp will compile our sass => 'sass' plugin will be use => '--save-dev' packages will be stored into package.json as dev dependencies
+
+3). Create gulp.js file that contains functions for gulp, for compiling our sass to css 
+
+        const gulp = require('gulp');
+        const sass = require('gulp-sass')(require('sass'));
+
+        gulp.task('sass', function () {
+        return gulp.src('app/scss/**/*.scss')
+            .pipe(sass().on('error', sass.logError))
+            .pipe(gulp.dest('./public/css'))
+        });
+
+        gulp.task('watch', function () {
+        gulp.watch('app/scss/**/*.scss', gulp.series('sass'));
+        });
+
+        gulp.task('default', gulp.series('sass', 'watch'));
+
+
+4). 'gulp'
+    -> in terminal, run this task.
+
+
