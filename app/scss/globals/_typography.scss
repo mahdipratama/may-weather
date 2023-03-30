@@ -1,4 +1,15 @@
-@use '../utilities' as u;
+@use '../utilities' as *;
+:root {
+  // Font Size
+  --fz-title-1: 2rem;
+  --fz-title-2: 1.8rem;
+  --fz-title-3: 1.6rem;
+  --fz-body-1: 2.2rem;
+  --fz-body-2: 2rem;
+  --fz-body-3: 1.6rem;
+  --fz-label-1: 1.4rem;
+  --fz-label-2: 1.2rem;
+}
 
 h1,
 h2,
@@ -16,5 +27,22 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+sub {
+  vertical-align: baseline;
+}
+
+sup {
+  vertical-align: top;
+}
+
+sub,
+sup {
+  font-size: 0.75em;
 }

@@ -1,2 +1,25 @@
 @use '../utilities/' as *;
- 
+:root {
+  // Shadow
+  --shadow-1: 0px 1px 3px hsla(0, 0%, 0%, 0.5);
+  --shadow-2: 0px 3px 6px hsla(0, 0%, 0%, 0.4);
+
+  // Border Radius
+  --radius-28: 28px;
+  --radius-16: 16px;
+  --radius-pill: 500px;
+  --radius-circle: 50%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--color-main);
+  font-family: var(--ff-epilogue);
+  font-size: var(--fz-body-3);
+  /* overflow: hidden; */
+}
+
+:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
