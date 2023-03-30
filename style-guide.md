@@ -26,6 +26,7 @@ Google Font
 --color-2: #b9b6bf;
 --white: hsl(0, 0%, 100%);
 --white-alpha-4: hsla(0, 0%, 100%, 0.04);
+--white-alpha-6: hsla(0, 0%, 100%, 0.226);
 --white-alpha-8: hsla(0, 0%, 100%, 0.08);
 --black-alpha-10: hsla(0, 0%, 0%, 0.1);
 ```
