@@ -1,0 +1,100 @@
+@use '../utilities/' as *;
+
+.highlights {
+  & .highlight-list {
+    display: grid;
+    gap: 20px;
+
+    & .card-sm {
+      background-color: var(--black-alpha-10);
+      position: relative;
+
+      & .title-3 {
+        color: var(--color-2);
+        margin-bottom: 20px;
+      }
+    }
+
+    & .highlight-card :is(.wrapper, .card-list, .card-item) {
+      display: flex;
+      align-items: center;
+    }
+
+    & .highlight-card {
+      & .wrapper {
+        justify-content: space-between;
+        gap: 16px;
+
+        & .card-list {
+          flex-wrap: wrap;
+          flex-grow: 1;
+          row-gap: 8px;
+
+          & .card-item {
+            width: 50%;
+            justify-content: flex-end;
+            gap: 4px;
+          }
+        }
+
+        & .label-1 {
+          color: var(--color-1);
+        }
+      }
+
+      & .badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        padding: 2px 12px;
+        border-radius: var(--radius-pill);
+        font-weight: 500;
+        cursor: help;
+
+        &.aqi-1 {
+          background-color: var(--bg-aqi-1);
+          color: var(--on-bg-aqi-1);
+        }
+
+        &.aqi-2 {
+          background-color: var(--bg-aqi-2);
+          color: var(--on-bg-aqi-2);
+        }
+
+        &.aqi-3 {
+          background-color: var(--bg-aqi-3);
+          color: var(--on-bg-aqi-3);
+        }
+
+        &.aqi-4 {
+          background-color: var(--bg-aqi-4);
+          color: var(--on-bg-aqi-4);
+        }
+
+        &.aqi-5 {
+          background-color: var(--bg-aqi-5);
+          color: var(--on-bg-aqi-5);
+        }
+      }
+    }
+
+    & .highlight-card.two {
+      & .card-item {
+        width: 50%;
+
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+
+        & .label-1 {
+          color: var(--color-1);
+          margin-block-end: 4px;
+        }
+      }
+    }
+  }
+
+  & .m-icon {
+    font-size: 3.2rem;
+  }
+}

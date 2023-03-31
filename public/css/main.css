@@ -17,6 +17,16 @@ html {
   --color-main: #eae6f2;
   --color-1: #637989;
   --color-2: #b9b6bf;
+  --bg-aqi-1: #89e589;
+  --on-bg-aqi-1: #1f331f;
+  --bg-aqi-2: #e5dd89;
+  --on-bg-aqi-2: #33311f;
+  --bg-aqi-3: #e5c089;
+  --on-bg-aqi-3: #332b1f;
+  --bg-aqi-4: #e58989;
+  --on-bg-aqi-4: #331f1f;
+  --bg-aqi-5: #e589b7;
+  --on-bg-aqi-5: #331f29;
   --white: hsl(0, 0%, 100%);
   --white-alpha-4: hsla(0, 0%, 100%, 0.04);
   --white-alpha-6: hsla(0, 0%, 100%, 0.226);
@@ -64,7 +74,6 @@ article.container {
   gap: 1.25rem;
   height: 100%;
   overflow-y: auto; /* for firefox */
-  overflow-y: overlay;
 }
 
 article.container::-webkit-scrollbar-thumb {
@@ -442,4 +451,80 @@ sup {
 }
 .forecast .forecast-card .card-item .label-1:first-child {
   text-align: left;
+}
+
+.highlights .highlight-list {
+  display: grid;
+  gap: 20px;
+}
+.highlights .highlight-list .card-sm {
+  background-color: var(--black-alpha-10);
+  position: relative;
+}
+.highlights .highlight-list .card-sm .title-3 {
+  color: var(--color-2);
+  margin-bottom: 20px;
+}
+.highlights .highlight-list .highlight-card :is(.wrapper, .card-list, .card-item) {
+  display: flex;
+  align-items: center;
+}
+.highlights .highlight-list .highlight-card .wrapper {
+  justify-content: space-between;
+  gap: 16px;
+}
+.highlights .highlight-list .highlight-card .wrapper .card-list {
+  flex-wrap: wrap;
+  flex-grow: 1;
+  row-gap: 8px;
+}
+.highlights .highlight-list .highlight-card .wrapper .card-list .card-item {
+  width: 50%;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.highlights .highlight-list .highlight-card .wrapper .label-1 {
+  color: var(--color-1);
+}
+.highlights .highlight-list .highlight-card .badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 2px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+  cursor: help;
+}
+.highlights .highlight-list .highlight-card .badge.aqi-1 {
+  background-color: var(--bg-aqi-1);
+  color: var(--on-bg-aqi-1);
+}
+.highlights .highlight-list .highlight-card .badge.aqi-2 {
+  background-color: var(--bg-aqi-2);
+  color: var(--on-bg-aqi-2);
+}
+.highlights .highlight-list .highlight-card .badge.aqi-3 {
+  background-color: var(--bg-aqi-3);
+  color: var(--on-bg-aqi-3);
+}
+.highlights .highlight-list .highlight-card .badge.aqi-4 {
+  background-color: var(--bg-aqi-4);
+  color: var(--on-bg-aqi-4);
+}
+.highlights .highlight-list .highlight-card .badge.aqi-5 {
+  background-color: var(--bg-aqi-5);
+  color: var(--on-bg-aqi-5);
+}
+.highlights .highlight-list .highlight-card.two .card-item {
+  width: 50%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.highlights .highlight-list .highlight-card.two .card-item .label-1 {
+  color: var(--color-1);
+  margin-block-end: 4px;
+}
+.highlights .m-icon {
+  font-size: 3.2rem;
 }

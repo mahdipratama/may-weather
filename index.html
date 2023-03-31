@@ -235,7 +235,7 @@ m226 -147 c22 -21 25 -33 25 -91 l0 -67 -58 -59 c-67 -66 -97 -74 -137 -33
 
               <li class="meta-item">
                 <span class="m-icon">
-                  <i class="fa-solid fa-location-dot fa-lg" style="color:  #f4f4f4;">
+                  <i class="fa-solid fa-location-dot fa-xl" style="color:  #f4f4f4;">
                   </i>
                 </span>
                 <p class="title-3 meta-text">
@@ -250,8 +250,7 @@ m226 -147 c22 -21 25 -33 25 -91 l0 -67 -58 -59 c-67 -66 -97 -74 -137 -33
 
         <!-- 5 DAYS FORECAST -->
 
-        <section
-                 class="section forecast" aria-labelledby="forecast-label"
+        <section class="section forecast" aria-labelledby="forecast-label"
                  data-5-day-forecast>
 
           <h2 class="title-2" id="foreacast-label">
@@ -347,6 +346,387 @@ m226 -147 c22 -21 25 -33 25 -91 l0 -67 -58 -59 c-67 -66 -97 -74 -137 -33
           </div>
 
 
+        </section>
+
+      </div>
+
+      <div class="content-right">
+
+        <section class="section highlights" aria-labelledby="highlights-label" data-highlights>
+
+          <div class="card card-lg">
+            <h2 class="title-2" id="highlights-label">
+              Today's Highlights
+            </h2>
+
+            <div class="highlight-list">
+
+              <div class="card card-sm highlight-card one">
+
+                <h3 class="title-3">
+                  Air Quality Index
+                </h3>
+
+                <div class="wrapper">
+                  <span class="m-icon">
+                    <img src="./app/icons/wind.png" alt="wind" width="32" height="32">
+                  </span>
+
+                  <ul class="card-list">
+
+                    <li class="card-item">
+                      <p class="title-1">4.84</p>
+                      <p class="label-1">
+                        PM<sub>2.5</sub>
+                      </p>
+                    </li>
+
+                    <li class="card-item">
+                      <p class="title-1">0.576</p>
+                      <p class="label-1">
+                        50<sub>2</sub>
+                      </p>
+                    </li>
+
+                    <li class="card-item">
+                      <p class="title-1">1.07</p>
+                      <p class="label-1">
+                        NO<sub>2</sub>
+                      </p>
+                    </li>
+
+                    <li class="card-item">
+                      <p class="title-1">19.3</p>
+                      <p class="label-1">
+                        O<sub>3</sub>
+                      </p>
+                    </li>
+
+                  </ul>
+                </div>
+
+                <span class="badge aqi-1 label-1" title="Air Quality">Good
+                </span>
+
+              </div>
+
+              <div class="card card-sm highlight-card two">
+                <h3 class="title-3">Sunrise & Sunset</h3>
+
+                <div class="card-list">
+                  <div class="card-item">
+                    <span class="m-icon">
+                      <img src="./app/icons/sunrise.png" alt="sunrise" width="50" height="50">
+                    </span>
+                    <div>
+                      <p class="label-1">Sunrise</p>
+                      <p class="title-1">6:4 AM</p>
+                    </div>
+                  </div>
+
+                  <div class="card-item">
+                    <span class="m-icon">
+                      <img src="./app/icons/sunset.png" alt="sunset" width="50" height="50">
+                    </span>
+                    <div>
+                      <p class="label-1">Sunrise</p>
+                      <p class="title-1">6:4 AM</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="card card-sm highlight-card">
+                <h3 class="title-3">Humidity</h3>
+                <div class="wrapper">
+                  <span class="m-icon">
+                    <img src="./app/icons/humidity.png" alt="humidity" width="32" height="32">
+                  </span>
+                  <p class="title-1">
+                    78<sub>%</sub>
+                  </p>
+                </div>
+              </div>
+
+              <div class="card card-sm highlight-card">
+                <h3 class="title-3">Pressure</h3>
+                <div class="wrapper">
+                  <span class="m-icon">
+                    <img src="./app/icons/haze.png" alt="pressure" width="32" height="32">
+                  </span>
+                  <p class="title-1">
+                    1008<sub>hPa</sub>
+                  </p>
+                </div>
+              </div>
+
+              <div class="card card-sm highlight-card">
+                <h3 class="title-3">Visibility</h3>
+                <div class="wrapper">
+                  <span class="m-icon">
+                    <img src="./app/icons/visibility.png" alt="visibility" width="32" height="32">
+                  </span>
+                  <p class="title-1">
+                    10<sup>km</sup>
+                  </p>
+                </div>
+              </div>
+
+              <div class="card card-sm highlight-card">
+                <h3 class="title-3">Feels Like</h3>
+                <div class="wrapper">
+                  <span class="m-icon">
+                    <img src="./app/icons/thermometer .png" alt="feels like" width="32" height="32">
+                  </span>
+                  <p class="title-1">
+                    30<sup>c</sup>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <section class="section hourly-forecast" aria-label="hourly forecast" data-hourly-forecast>
+          <h2 class="title-2">Today at</h2>
+          <div class="slider-container">
+
+            <ul class="slider-list" data-temp>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/03d.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">30&deg;</p>
+                </div>
+              </li>
+
+            </ul>
+
+            <ul class="slider-list" data-wind>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+              <li class="slider-item">
+                <div class="card card-sm slider-card">
+                  <p class="body-3">4 PM</p>
+                  <img
+                       src="/app/icons/direction.png" alt="overcast clouds"
+                       width="48"
+                       height="48"
+                       loading="lazy"
+                       class="weather-icon"
+                       title="overcast clouds">
+                  <p class="body-3">1 km/h</p>
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
         </section>
 
       </div>

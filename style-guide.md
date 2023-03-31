@@ -24,6 +24,16 @@ Google Font
 --color-main: #eae6f2;
 --color-1: #637989;
 --color-2: #b9b6bf;
+--bg-aqi-1: #89e589;
+--on-bg-aqi-1: #1f331f;
+--bg-aqi-2: #e5dd89;
+--on-bg-aqi-2: #33311f;
+--bg-aqi-3: #e5c089;
+--on-bg-aqi-3: #332b1f;
+--bg-aqi-4: #e58989;
+--on-bg-aqi-4: #331f1f;
+--bg-aqi-5: #e589b7;
+--on-bg-aqi-5: #331f29;
 --white: hsl(0, 0%, 100%);
 --white-alpha-4: hsla(0, 0%, 100%, 0.04);
 --white-alpha-6: hsla(0, 0%, 100%, 0.226);
