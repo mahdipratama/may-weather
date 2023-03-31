@@ -7,7 +7,7 @@
     justify-content: space-between;
 
     & .logo {
-      width: rem(150);
+      width: 150px;
     }
 
     & .search-view {
@@ -38,9 +38,9 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          right: rem(16);
-          width: rem(24);
-          height: rem(24);
+          right: 16px;
+          width: 24px;
+          height: 24px;
           border: 3px solid var(--color-2);
           border-top-color: transparent;
           border-radius: var(--radius-circle);
@@ -53,13 +53,13 @@
         }
 
         & .search-field {
-          height: rem(80);
-          line-height: rem(80);
-          padding-inline: 51px rem(16);
+          height: 80px;
+          line-height: 80px;
+          padding-inline: 51px 16px;
           outline: none;
 
           &::placeholder {
-            font-size: rem(16);
+            font-size: 16px;
             color: var(--color-2);
           }
 
@@ -91,7 +91,7 @@
 
       & .search-result {
         & .view-list {
-          padding-block: rem(8) rem(16);
+          padding-block: 8px 16px;
 
           & .view-item {
             position: relative;
@@ -99,8 +99,8 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: rem(16);
-            padding-inline: rem(16) rem(24);
+            gap: 16px;
+            padding-inline: 16px 24px;
 
             :hover {
               background-color: var(--white-alpha-8);
@@ -127,36 +127,31 @@
     & .header-actions {
       display: flex;
       align-items: center;
-      gap: rem(16);
+      gap: 16;
+
+      @include breakpoint-up(medium) {
+        gap: 24px;
+      }
 
       & .icon-btn .icon {
-        padding-top: rem(3);
+        padding-top: 3;
       }
 
       & .btn-primary {
+        @include breakpoint-up(medium) {
+          padding-inline: 16px 24px;
+        }
+
         & .span {
+          color: var(--on-primary);
           display: none;
+
+          @include breakpoint-up(medium) {
+            display: block;
+          }
         }
       }
     }
-  }
-}
-
-@include breakpoint-up(medium) {
-  .header-actions {
-    gap: 24px;
-  }
-
-  .header .btn-primary {
-    padding-inline: 16px 24px;
-  }
-
-  .header .btn-primary .span {
-    display: block;
-  }
-
-  .search-view {
-    clip-path: circle(3% at calc(100% - 273px) 6%);
   }
 }
 

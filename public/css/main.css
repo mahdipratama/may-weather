@@ -340,7 +340,7 @@ sup {
   justify-content: space-between;
 }
 .header .container .logo {
-  width: 9.375rem;
+  width: 150px;
 }
 .header .container .search-view {
   position: fixed;
@@ -368,9 +368,9 @@ sup {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 1rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  right: 16px;
+  width: 24px;
+  height: 24px;
   border: 3px solid var(--color-2);
   border-top-color: transparent;
   border-radius: var(--radius-circle);
@@ -381,13 +381,13 @@ sup {
   display: block;
 }
 .header .container .search-view .search-wrapper .search-field {
-  height: 5rem;
-  line-height: 5rem;
-  padding-inline: 51px 1rem;
+  height: 80px;
+  line-height: 80px;
+  padding-inline: 51px 16px;
   outline: none;
 }
 .header .container .search-view .search-wrapper .search-field::placeholder {
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--color-2);
 }
 .header .container .search-view .search-wrapper .search-field::-webkit-search-cancel-button {
@@ -410,7 +410,7 @@ sup {
   background-color: var(--white-alpha-8);
 }
 .header .container .search-view .search-result .view-list {
-  padding-block: 0.5rem 1rem;
+  padding-block: 8px 16px;
 }
 .header .container .search-view .search-result .view-list .view-item {
   position: relative;
@@ -418,8 +418,8 @@ sup {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1rem;
-  padding-inline: 1rem 1.5rem;
+  gap: 16px;
+  padding-inline: 16px 24px;
 }
 .header .container .search-view .search-result .view-list .view-item :hover {
   background-color: var(--white-alpha-8);
@@ -438,29 +438,31 @@ sup {
 .header .container .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16;
 }
-.header .container .header-actions .icon-btn .icon {
-  padding-top: 0.1875rem;
-}
-.header .container .header-actions .btn-primary .span {
-  display: none;
-}
-
 @media (min-width: 48rem) {
-  .header-actions {
+  .header .container .header-actions {
     gap: 24px;
   }
-  .header .btn-primary {
+}
+.header .container .header-actions .icon-btn .icon {
+  padding-top: 3;
+}
+@media (min-width: 48rem) {
+  .header .container .header-actions .btn-primary {
     padding-inline: 16px 24px;
   }
-  .header .btn-primary .span {
+}
+.header .container .header-actions .btn-primary .span {
+  color: var(--on-primary);
+  display: none;
+}
+@media (min-width: 48rem) {
+  .header .container .header-actions .btn-primary .span {
     display: block;
   }
-  .search-view {
-    clip-path: circle(3% at calc(100% - 273px) 6%);
-  }
 }
+
 @keyframes loading {
   0% {
     transform: translateY(-50%) rotate(0);
