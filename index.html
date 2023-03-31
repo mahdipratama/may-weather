@@ -159,7 +159,7 @@ m226 -147 c22 -21 25 -33 25 -91 l0 -67 -58 -59 c-67 -66 -97 -74 -137 -33
             <li class="view-item">
 
               <span class="m-icon">
-                <i class="fa-solid fa-location-dot fa-xl" style="color: #b7bdc8;">
+                <i class="fa-solid fa-location-dot fa-xl" style="color:  #f4f4f4;">
                 </i>
               </span>
 
@@ -181,7 +181,7 @@ m226 -147 c22 -21 25 -33 25 -91 l0 -67 -58 -59 c-67 -66 -97 -74 -137 -33
                 class="icon-btn"
                 aria-label="open search" data-search-toggler>
           <span class="m-icon icon">
-            <i class="fa-solid fa-magnifying-glass fa-lg" style="color: #d1d5db;">
+            <i class="fa-solid fa-magnifying-glass fa-lg" style="color:  #f4f4f4;">
             </i>
           </span>
         </button>
@@ -204,7 +204,152 @@ m226 -147 c22 -21 25 -33 25 -91 l0 -67 -58 -59 c-67 -66 -97 -74 -137 -33
   <main>
     <article class="container" data-container>
 
+      <div class="content-left">
+        <!-- CURRENT WEATHER -->
 
+        <section class="section current-weather" aria-label="current weather" data-current-weather>
+
+          <div class="card card-lg current-weather-card">
+
+            <h2 class="title-2 card-title">Now</h2>
+
+            <div class="weapper">
+
+              <p class="heading">22&deg;<sup>c</sup></p>
+              <img src="./app/icons/01d.png" width="64" height="64" alt="overcast clouds" class="weather-icon">
+
+            </div>
+
+            <p class="body-3">Overcast Clouds</p>
+
+            <ul class="meta-list">
+              <li class="meta-item">
+                <span class="m-icon">
+                  <i class="fa-regular fa-calendar fa-lg" style="color: #f4f4f4;">
+                  </i>
+                </span>
+                <p class="title-3 meta-text">
+                  Thursday 30, Mar
+                </p>
+              </li>
+
+              <li class="meta-item">
+                <span class="m-icon">
+                  <i class="fa-solid fa-location-dot fa-lg" style="color:  #f4f4f4;">
+                  </i>
+                </span>
+                <p class="title-3 meta-text">
+                  Prabumulih, ID
+                </p>
+              </li>
+            </ul>
+
+          </div>
+
+        </section>
+
+        <!-- 5 DAYS FORECAST -->
+
+        <section
+                 class="section forecast" aria-labelledby="forecast-label"
+                 data-5-day-forecast>
+
+          <h2 class="title-2" id="foreacast-label">
+            5 Days Forecast
+          </h2>
+
+          <div class="card card-lg forecast-card">
+
+            <ul data-forecast-list>
+
+              <li class="card-item">
+                <p class="label-1">31 Mar</p>
+                <div class="icon-wrapper">
+                  <img
+                       src="./app/icons/04d.png"
+                       width="36"
+                       height="36"
+                       alt="overcast clouds" class="weather-icon"
+                       title="overcast clouds">
+                  <span class="title-2">
+                    23&deg;
+                  </span>
+                </div>
+                <p class="label-1">Friday</p>
+              </li>
+
+              <li class="card-item">
+                <p class="label-1">31 Mar</p>
+                <div class="icon-wrapper">
+                  <img
+                       src="./app/icons/04d.png"
+                       width="36"
+                       height="36"
+                       alt="overcast clouds" class="weather-icon"
+                       title="overcast clouds">
+                  <span class="title-2">
+                    23&deg;
+                  </span>
+                </div>
+                <p class="label-1">Friday</p>
+              </li>
+
+              <li class="card-item">
+                <p class="label-1">31 Mar</p>
+                <div class="icon-wrapper">
+                  <img
+                       src="./app/icons/04d.png"
+                       width="36"
+                       height="36"
+                       alt="overcast clouds" class="weather-icon"
+                       title="overcast clouds">
+                  <span class="title-2">
+                    23&deg;
+                  </span>
+                </div>
+                <p class="label-1">Friday</p>
+              </li>
+
+              <li class="card-item">
+                <p class="label-1">31 Mar</p>
+                <div class="icon-wrapper">
+                  <img
+                       src="./app/icons/04d.png"
+                       width="36"
+                       height="36"
+                       alt="overcast clouds" class="weather-icon"
+                       title="overcast clouds">
+                  <span class="title-2">
+                    23&deg;
+                  </span>
+                </div>
+                <p class="label-1">Friday</p>
+              </li>
+
+              <li class="card-item">
+                <p class="label-1">31 Mar</p>
+                <div class="icon-wrapper">
+                  <img
+                       src="./app/icons/04d.png"
+                       width="36"
+                       height="36"
+                       alt="overcast clouds" class="weather-icon"
+                       title="overcast clouds">
+                  <span class="title-2">
+                    23&deg;
+                  </span>
+                </div>
+                <p class="label-1">Friday</p>
+              </li>
+
+            </ul>
+
+          </div>
+
+
+        </section>
+
+      </div>
 
     </article>
   </main>

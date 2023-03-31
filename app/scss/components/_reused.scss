@@ -56,6 +56,12 @@
   padding: 16px;
 }
 
+.heading {
+  color: var(--white);
+  font-size: var(--fz-heading);
+  line-height: 1.1;
+}
+
 .title-1 {
   font-size: var(--fz-title-1);
 }
@@ -67,6 +73,7 @@
 
 .title-3 {
   font-size: var(--fz-title-1);
+  font-weight: 500;
 }
 
 .body-1 {

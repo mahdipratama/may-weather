@@ -11,13 +11,50 @@
   --radius-circle: 50%;
 }
 
+html {
+  font-size: var(--ff-nunito-sans);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--color-main);
   font-family: var(--ff-epilogue);
-  // font-size: var(--fz-body-3);
-  font-size: rem(16);
+  font-size: var(--fz-body-3);
   /* overflow: hidden; */
+}
+
+main {
+  height: calc(100vh - 80px);
+  height: calc(100svh - 80px); /* for mobile browser */
+  overflow: hidden;
+}
+
+article.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: rem(20);
+  height: 100%;
+  overflow-y: auto; /* for firefox */
+  overflow-y: overlay;
+}
+
+article.container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+article.container:is(:hover, :focus-within)::-webkit-scrollbar-thumb {
+  background-color: var(--white-alpha-8);
+}
+
+article.container::-webkit-scrollbar-button {
+  height: 10px;
+}
+
+.section:not(:last-child) {
+  margin-block-end: 16px;
 }
 
 :focus-visible {

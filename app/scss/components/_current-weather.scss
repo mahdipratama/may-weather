@@ -1,0 +1,40 @@
+@use '../utilities/' as *;
+
+.section {
+  & .current-weather-card {
+    & .weapper {
+      margin-block: 12px;
+      display: flex;
+      gap: rem(8);
+      align-items: center;
+    }
+
+    & .weather-icon {
+      margin-inline: auto;
+    }
+
+    & .body-3 {
+      text-transform: capitalize;
+    }
+
+    & .meta-list {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-1);
+
+      & .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+
+        & .meta-text {
+          color: var(--color-1);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@use '../utilities/' as *;
+
+.forecast {
+  & .forecast-card {
+    & .card-item {
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+
+      & .icon-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        & .title-2 {
+          margin-bottom: 0;
+        }
+      }
+
+      & .label-1 {
+        color: var(--color-1);
+        font-weight: 500;
+      }
+
+      & .label-1 {
+        width: 100%;
+        text-align: right;
+      }
+
+      & .label-1:first-child {
+        text-align: left;
+      }
+    }
+  }
+}
