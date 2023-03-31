@@ -23,13 +23,15 @@
 
 .btn-primary {
   background-color: var(--primary);
-  color: var(--on-primary);
-  width: 48px;
+  color: var(--color-main);
   height: 48px;
-  display: grid;
-  place-items: center;
-  border-radius: var(--radius-circle);
-  border: none;
+  line-height: 48px;
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 16px;
+  border-radius: var(--radius-pill);
 }
 
 .btn-primary:hover {
