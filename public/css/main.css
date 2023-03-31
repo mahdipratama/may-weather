@@ -128,6 +128,25 @@ input {
   width: 100%;
 }
 
+@media (min-width: 48rem) {
+  main {
+    height: calc(100vh - 96px);
+    height: calc(100svh - 96px);
+  }
+  article.container {
+    padding-block-start: 0;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .content-left {
+    position: sticky;
+    top: 0;
+  }
+  .section:not(:last-child) {
+    margin-block: 20px;
+  }
+}
 :root {
   --fz-heading: 5.6rem;
   --fz-title-1: 2rem;
@@ -284,6 +303,29 @@ sup {
   animation: fade-in 250ms ease forwards;
 }
 
+@media (min-width: 48rem) {
+  .container {
+    padding: 24px;
+  }
+  .title-1 {
+    --title-1: 2.4rem;
+  }
+  .section > .title-2 {
+    margin-block-end: 16px;
+  }
+  .card-lg {
+    padding: 24px;
+  }
+  .card-sm {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+  }
+  .badge {
+    top: 20px;
+    right: 20px;
+  }
+}
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -405,6 +447,20 @@ sup {
   display: none;
 }
 
+@media (min-width: 48rem) {
+  .header-actions {
+    gap: 24px;
+  }
+  .header .btn-primary {
+    padding-inline: 16px 24px;
+  }
+  .header .btn-primary .span {
+    display: block;
+  }
+  .search-view {
+    clip-path: circle(3% at calc(100% - 273px) 6%);
+  }
+}
 @keyframes loading {
   0% {
     transform: translateY(-50%) rotate(0);
@@ -469,6 +525,11 @@ sup {
   text-align: left;
 }
 
+@media (min-width: 48rem) {
+  .forecast-card .card-item:not(:last-child) {
+    margin-block-end: 16px;
+  }
+}
 .highlights .highlight-list {
   display: grid;
   gap: 20px;
@@ -545,6 +606,26 @@ sup {
   font-size: 3.2rem;
 }
 
+@media (min-width: 48rem) {
+  .highlight-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .highlight-card:nth-child(-n+2) {
+    grid-column: span 2;
+    height: 160px;
+  }
+  .highlight-card:nth-child(n+3) {
+    height: 120px;
+  }
+  .highlights .m-icon {
+    font-size: 3.6rem;
+  }
+  .highlight-card.one .card-item {
+    width: 25%;
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+}
 .hourly-forecast .slider-container {
   overflow-x: auto;
   margin-inline: -16px;
@@ -575,6 +656,19 @@ sup {
   margin-block: 12px;
 }
 
+@media (min-width: 48rem) {
+  .slider-container {
+    margin-inline: 0 -24px;
+    border-bottom-left-radius: var(--radius-16);
+    border-top-left-radius: var(--radius-16);
+  }
+  .slider-list::after {
+    min-width: 12px;
+  }
+  .hourly-forecast .card-sm {
+    padding: 16px;
+  }
+}
 .footer {
   display: flex;
   flex-wrap: wrap;

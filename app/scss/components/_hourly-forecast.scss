@@ -39,3 +39,23 @@
     }
   }
 }
+
+@include breakpoint-up(medium) {
+  .slider-container {
+    margin-inline: 0 -24px;
+    border-bottom-left-radius: var(--radius-16);
+    border-top-left-radius: var(--radius-16);
+  }
+
+  // .slider-list::before {
+  //   display: none;
+  // }
+
+  .slider-list::after {
+    min-width: 12px;
+  }
+
+  .hourly-forecast .card-sm {
+    padding: 16px;
+  }
+}

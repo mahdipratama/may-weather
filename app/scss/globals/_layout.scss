@@ -90,3 +90,26 @@ button {
 input {
   width: 100%;
 }
+
+@include breakpoint-up(medium) {
+  main {
+    height: calc(100vh - 96px);
+    height: calc(100svh - 96px);
+  }
+
+  article.container {
+    padding-block-start: 0;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .content-left {
+    position: sticky;
+    top: 0;
+  }
+
+  .section:not(:last-child) {
+    margin-block: 20px;
+  }
+}

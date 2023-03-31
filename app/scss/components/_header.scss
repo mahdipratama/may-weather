@@ -142,6 +142,24 @@
   }
 }
 
+@include breakpoint-up(medium) {
+  .header-actions {
+    gap: 24px;
+  }
+
+  .header .btn-primary {
+    padding-inline: 16px 24px;
+  }
+
+  .header .btn-primary .span {
+    display: block;
+  }
+
+  .search-view {
+    clip-path: circle(3% at calc(100% - 273px) 6%);
+  }
+}
+
 @keyframes loading {
   0% {
     transform: translateY(-50%) rotate(0);

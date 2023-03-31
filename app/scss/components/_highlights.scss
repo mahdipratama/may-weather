@@ -98,3 +98,28 @@
     font-size: 3.2rem;
   }
 }
+
+@include breakpoint-up(medium) {
+  .highlight-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .highlight-card:nth-child(-n + 2) {
+    grid-column: span 2;
+    height: 160px;
+  }
+
+  .highlight-card:nth-child(n + 3) {
+    height: 120px;
+  }
+
+  .highlights .m-icon {
+    font-size: 3.6rem;
+  }
+
+  .highlight-card.one .card-item {
+    width: 25%;
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+}

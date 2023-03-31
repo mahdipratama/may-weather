@@ -36,3 +36,9 @@
     }
   }
 }
+
+@include breakpoint-up(medium) {
+  .forecast-card .card-item:not(:last-child) {
+    margin-block-end: 16px;
+  }
+}
