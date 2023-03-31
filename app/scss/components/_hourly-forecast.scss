@@ -1,0 +1,41 @@
+@use '../utilities/' as *;
+
+.hourly-forecast {
+  & .slider-container {
+    overflow-x: auto;
+    margin-inline: -16px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & .slider-list {
+      display: flex;
+      gap: 12px;
+
+      &:first-child {
+        margin-bottom: 16px;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        min-width: 4px;
+      }
+
+      & .slider-item {
+        min-width: 110px;
+        flex: 1 1 100%;
+
+        & .slider-card {
+          text-align: center;
+
+          & .weather-icon {
+            margin-inline: auto;
+            margin-block: 12px;
+          }
+        }
+      }
+    }
+  }
+}

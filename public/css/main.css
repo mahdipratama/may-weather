@@ -528,3 +528,33 @@ sup {
 .highlights .m-icon {
   font-size: 3.2rem;
 }
+
+.hourly-forecast .slider-container {
+  overflow-x: auto;
+  margin-inline: -16px;
+}
+.hourly-forecast .slider-container::-webkit-scrollbar {
+  display: none;
+}
+.hourly-forecast .slider-container .slider-list {
+  display: flex;
+  gap: 12px;
+}
+.hourly-forecast .slider-container .slider-list:first-child {
+  margin-bottom: 16px;
+}
+.hourly-forecast .slider-container .slider-list::before, .hourly-forecast .slider-container .slider-list::after {
+  content: "";
+  min-width: 4px;
+}
+.hourly-forecast .slider-container .slider-list .slider-item {
+  min-width: 110px;
+  flex: 1 1 100%;
+}
+.hourly-forecast .slider-container .slider-list .slider-item .slider-card {
+  text-align: center;
+}
+.hourly-forecast .slider-container .slider-list .slider-item .slider-card .weather-icon {
+  margin-inline: auto;
+  margin-block: 12px;
+}
