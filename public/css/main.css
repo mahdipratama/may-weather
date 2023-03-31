@@ -558,3 +558,30 @@ sup {
   margin-inline: auto;
   margin-block: 12px;
 }
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-1);
+  text-align: center;
+  gap: 12px;
+  margin-block-start: 28px;
+  /* display: none; */
+}
+.footer .coded {
+  text-decoration: underline;
+  color: #729fc7;
+}
+.footer .coded:hover {
+  text-decoration: none;
+  color: var(--primary);
+}
+.footer .body-3:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
