@@ -141,3 +141,25 @@
     opacity: 1;
   }
 }
+
+@include breakpoint-up(large) {
+  // .container {
+  //   padding: 40px;
+  // }
+
+  .card-lg {
+    padding: 36px;
+  }
+
+  .card-sm {
+    padding: 24px;
+  }
+
+  .title-1 {
+    --title: 3.6rem;
+  }
+
+  .highlight-card.two .card-item {
+    column-gap: 24px;
+  }
+}

@@ -2,8 +2,8 @@
 // 700px, 900px, 1440px
 // Sass Map
 $breakpoints-up: (
-  'medium': rem(768),
-  'large': rem(900),
+  'medium': 768px,
+  'large': 1200px,
   'x-large': rem(1440),
 );
 

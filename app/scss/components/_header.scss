@@ -1,13 +1,30 @@
 @use '../utilities' as *;
 
 .header {
+  @include breakpoint-up(large) {
+    position: relative;
+    height: 120px;
+    z-index: 4;
+  }
+
   & .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    @include breakpoint-up(large) {
+      padding-block: 0;
+      height: 100%;
+    }
+
     & .logo {
       width: 150px;
+
+      @include breakpoint-up(large) {
+        & img {
+          width: 100px;
+        }
+      }
     }
 
     & .search-view {
@@ -23,14 +40,55 @@
       visibility: hidden;
       z-index: 4;
 
+      @include breakpoint-up(large) {
+        all: unset;
+        display: block;
+        position: relative;
+        width: 560px;
+        animation: none;
+
+        &:not(:focus-within) .search-result {
+          display: none;
+        }
+
+        &:focus-within .search-result.active {
+          display: block;
+        }
+
+        &:has(.search-result.active):focus-within .search-field {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &:is(:hover, :has(.view-list):hover) {
+          filter: drop-shadow(var(--shadow-1));
+        }
+
+        &:is(:focus-within, :has(.view-list):focus-within) {
+          filter: drop-shadow(var(--shadow-2));
+        }
+      }
+
       &.active {
         opacity: 1;
         visibility: visible;
+
+        @include breakpoint-up(large) {
+          all: unset;
+          display: block;
+          position: relative;
+          width: 500px;
+          animation: none;
+        }
       }
 
       & .search-wrapper {
         position: relative;
         border-bottom: 1px solid var(--color-2);
+
+        @include breakpoint-up(large) {
+          border-block-end: none;
+        }
 
         // LOADING
         &::before {
@@ -58,6 +116,12 @@
           padding-inline: 51px 16px;
           outline: none;
 
+          @include breakpoint-up(large) {
+            background-color: var(--surface);
+            height: 56px;
+            border-radius: var(--radius-28);
+          }
+
           &::placeholder {
             font-size: 16px;
             color: var(--color-2);
@@ -77,11 +141,19 @@
 
         & > .m-icon {
           display: none;
+
+          @include breakpoint-up(large) {
+            display: block;
+          }
         }
 
         & .icon-btn {
           background-color: transparent;
           box-shadow: none;
+
+          @include breakpoint-up(large) {
+            display: none;
+          }
 
           &:hover {
             background-color: var(--white-alpha-8);
@@ -90,8 +162,33 @@
       }
 
       & .search-result {
+        @include breakpoint-up(large) {
+          display: none;
+        }
+
         & .view-list {
           padding-block: 8px 16px;
+
+          @include breakpoint-up(large) {
+            background-color: var(--surface);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 260px;
+            border-radius: 0 0 var(--radius-28) var(--radius-28);
+            border-block-start: 1px solid var(--outline);
+            overflow-y: auto; /* for firefox */
+            overflow-y: overlay;
+
+            &:empty {
+              min-height: 120px;
+            }
+
+            &::-webkit-scrollbar-button {
+              height: 20px;
+            }
+          }
 
           & .view-item {
             position: relative;
@@ -127,7 +224,7 @@
     & .header-actions {
       display: flex;
       align-items: center;
-      gap: 16;
+      gap: 16px;
 
       @include breakpoint-up(medium) {
         gap: 24px;

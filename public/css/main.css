@@ -63,6 +63,7 @@ body {
   color: var(--color-main);
   font-family: var(--ff-epilogue);
   font-size: var(--fz-body-3);
+  margin: 0;
   /* overflow: hidden; */
 }
 
@@ -128,7 +129,7 @@ input {
   width: 100%;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   main {
     height: calc(100vh - 96px);
     height: calc(100svh - 96px);
@@ -147,6 +148,34 @@ input {
     margin-block: 20px;
   }
 }
+@media (min-width: 1200px) {
+  main {
+    height: calc(100vh - 120px);
+    height: calc(100svh - 120px);
+  }
+  article.container {
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 40px;
+  }
+  .current-weather .weather-icon {
+    width: 80px;
+  }
+  .forecast-card .title-2 {
+    --title-2: 2.2rem;
+  }
+  .highlight-card:nth-child(-n+2) {
+    height: 200px;
+  }
+  .highlight-card:nth-child(n+3) {
+    height: 150px;
+  }
+  .highlight-card .m-icon {
+    font-size: 4.8rem;
+  }
+  .slider-list {
+    gap: 16px;
+  }
+}
 :root {
   --fz-heading: 5.6rem;
   --fz-title-1: 2rem;
@@ -157,6 +186,12 @@ input {
   --fz-body-3: 1.6rem;
   --fz-label-1: 1.4rem;
   --fz-label-2: 1.2rem;
+}
+@media (min-width: 1200px) {
+  :root {
+    --fz-heading: 8rem;
+    --fz-title-2: 2rem;
+  }
 }
 
 h1,
@@ -303,7 +338,7 @@ sup {
   animation: fade-in 250ms ease forwards;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .container {
     padding: 24px;
   }
@@ -334,13 +369,45 @@ sup {
     opacity: 1;
   }
 }
+@media (min-width: 1200px) {
+  .card-lg {
+    padding: 36px;
+  }
+  .card-sm {
+    padding: 24px;
+  }
+  .title-1 {
+    --title: 3.6rem;
+  }
+  .highlight-card.two .card-item {
+    column-gap: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .header {
+    position: relative;
+    height: 120px;
+    z-index: 4;
+  }
+}
 .header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+@media (min-width: 1200px) {
+  .header .container {
+    padding-block: 0;
+    height: 100%;
+  }
+}
 .header .container .logo {
   width: 150px;
+}
+@media (min-width: 1200px) {
+  .header .container .logo img {
+    width: 100px;
+  }
 }
 .header .container .search-view {
   position: fixed;
@@ -355,13 +422,52 @@ sup {
   visibility: hidden;
   z-index: 4;
 }
+@media (min-width: 1200px) {
+  .header .container .search-view {
+    all: unset;
+    display: block;
+    position: relative;
+    width: 560px;
+    animation: none;
+  }
+  .header .container .search-view:not(:focus-within) .search-result {
+    display: none;
+  }
+  .header .container .search-view:focus-within .search-result.active {
+    display: block;
+  }
+  .header .container .search-view:has(.search-result.active):focus-within .search-field {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .header .container .search-view:is(:hover, :has(.view-list):hover) {
+    filter: drop-shadow(var(--shadow-1));
+  }
+  .header .container .search-view:is(:focus-within, :has(.view-list):focus-within) {
+    filter: drop-shadow(var(--shadow-2));
+  }
+}
 .header .container .search-view.active {
   opacity: 1;
   visibility: visible;
 }
+@media (min-width: 1200px) {
+  .header .container .search-view.active {
+    all: unset;
+    display: block;
+    position: relative;
+    width: 500px;
+    animation: none;
+  }
+}
 .header .container .search-view .search-wrapper {
   position: relative;
   border-bottom: 1px solid var(--color-2);
+}
+@media (min-width: 1200px) {
+  .header .container .search-view .search-wrapper {
+    border-block-end: none;
+  }
 }
 .header .container .search-view .search-wrapper::before {
   content: "";
@@ -386,6 +492,13 @@ sup {
   padding-inline: 51px 16px;
   outline: none;
 }
+@media (min-width: 1200px) {
+  .header .container .search-view .search-wrapper .search-field {
+    background-color: var(--surface);
+    height: 56px;
+    border-radius: var(--radius-28);
+  }
+}
 .header .container .search-view .search-wrapper .search-field::placeholder {
   font-size: 16px;
   color: var(--color-2);
@@ -402,15 +515,50 @@ sup {
 .header .container .search-view .search-wrapper > .m-icon {
   display: none;
 }
+@media (min-width: 1200px) {
+  .header .container .search-view .search-wrapper > .m-icon {
+    display: block;
+  }
+}
 .header .container .search-view .search-wrapper .icon-btn {
   background-color: transparent;
   box-shadow: none;
 }
+@media (min-width: 1200px) {
+  .header .container .search-view .search-wrapper .icon-btn {
+    display: none;
+  }
+}
 .header .container .search-view .search-wrapper .icon-btn:hover {
   background-color: var(--white-alpha-8);
 }
+@media (min-width: 1200px) {
+  .header .container .search-view .search-result {
+    display: none;
+  }
+}
 .header .container .search-view .search-result .view-list {
   padding-block: 8px 16px;
+}
+@media (min-width: 1200px) {
+  .header .container .search-view .search-result .view-list {
+    background-color: var(--surface);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 260px;
+    border-radius: 0 0 var(--radius-28) var(--radius-28);
+    border-block-start: 1px solid var(--outline);
+    overflow-y: auto; /* for firefox */
+    overflow-y: overlay;
+  }
+  .header .container .search-view .search-result .view-list:empty {
+    min-height: 120px;
+  }
+  .header .container .search-view .search-result .view-list::-webkit-scrollbar-button {
+    height: 20px;
+  }
 }
 .header .container .search-view .search-result .view-list .view-item {
   position: relative;
@@ -438,9 +586,9 @@ sup {
 .header .container .header-actions {
   display: flex;
   align-items: center;
-  gap: 16;
+  gap: 16px;
 }
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .header .container .header-actions {
     gap: 24px;
   }
@@ -448,7 +596,7 @@ sup {
 .header .container .header-actions .icon-btn .icon {
   padding-top: 3;
 }
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .header .container .header-actions .btn-primary {
     padding-inline: 16px 24px;
   }
@@ -457,7 +605,7 @@ sup {
   color: var(--on-primary);
   display: none;
 }
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .header .container .header-actions .btn-primary .span {
     display: block;
   }
@@ -527,7 +675,7 @@ sup {
   text-align: left;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .forecast-card .card-item:not(:last-child) {
     margin-block-end: 16px;
   }
@@ -608,7 +756,7 @@ sup {
   font-size: 3.2rem;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .highlight-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -658,7 +806,7 @@ sup {
   margin-block: 12px;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .slider-container {
     margin-inline: 0 -24px;
     border-bottom-left-radius: var(--radius-16);
