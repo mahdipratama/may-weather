@@ -10,3 +10,13 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; /* for horizontal scrollbar */
+}
+
+// ::-webkit-scrollbar-thumb {
+//   background-color: var(--white-alpha-8);
+//   border-radius: var(--radius-pill);
+// }
