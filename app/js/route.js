@@ -1,6 +1,6 @@
 'use strict'
 
-import { updateWeather, error404 } from './app.js'
+import { updateWeather, error404 } from './app.js';
 
 const defaultLocation = '#/weather?lat=-3.4023388&lon=104.2744922' // Prabumulih
 

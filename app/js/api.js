@@ -9,18 +9,12 @@ const API_KEY = '6717f6f86640f48b045c6df37d3ec6a2';
  * @returns data as promises
  */
 export const fetchData = async function (URL) {
-  try {
-    const res = await fetch(`${URL}&appid=${API_KEY}`)
+  const res = await fetch(`${URL}&appid=${API_KEY}`)
+  if (!res.ok) throw new Error('Error Fetching Data!');
 
-    if (!res.ok) throw new Error('Error Fetching Data!');
+  const data = await res.json();
+  return data
 
-    const data = await res.json();
-
-    return data
-
-  } catch (err) {
-    console.error(err);
-  }
 }
 
 export const url = {

@@ -1,146 +1,96 @@
-const WEATHER_API = 'https://api.weatherapi.com/v1/current.json?key=5496df2b6a93400cb0952759232503'
-// const WEATHER_MAP_API = 'https://api.openweathermap.org/data/2.5/weather?q='
-const WEATHER_MAP_API_CURRENT = 'https://api.openweathermap.org/data/2.5/weather?'
-const WEATHER_MAP_API_HOURLY = 'https://pro.openweathermap.org/data/2.5/forecast/hourly?'
+'use strict'
 
-const WEATHER_MAP_API_KEY = '6717f6f86640f48b045c6df37d3ec6a2'
+import { fetchData, url } from "./api.js"
+import * as module from './module.js'
+  ;
 
-// Geolocation
-const getPosition = function () {
-  return new Promise(function (resolve, reject) {
-    // navigator.geolocation.getCurrentPosition(
-    //   position => resolve(position),
-    //   err => reject(err)
-    // );
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
+/**
+ * 
+ * @param {nodeList} elements Element node array 
+ * @param {string} eventType event type e.g.: 'click', 'mouseover', etc..  
+ * @param {function} callback callback function 
+ */
+const addEventOnElement = function (elements, eventType, callback) {
+  elements.forEach(element => {
+    element.addEventListener(eventType, callback);
+  })
 };
 
+// Toggle search on mobile 
+const searchView = document.querySelector('[data-search-view]');
+const searchTogglers = document.querySelectorAll('[data-search-toggler]');
 
-const currentWeatherAPI = async function (location) {
-  try {
-
-    // Geolocation
-    const position = await getPosition()
-    const { latitude: lat, longitude: lon } = position.coords
-
-    // Current Weather
-    // const response = await fetch(`${WEATHER_API}&q=${location}`)
-    // const response = await fetch(`${WEATHER_MAP_API}${location}&appid=${WEATHER_MAP_API_KEY}`)
-    const currentResponse = await fetch(`${WEATHER_MAP_API_CURRENT}lat=${lat}&lon=${lon}&appid=${WEATHER_MAP_API_KEY}`)
-    console.log(currentResponse);
-
-    if (!currentResponse.ok) throw new Error('Error GETTING data')
-
-    const currentData = await currentResponse.json();
-    console.log(currentData);
+const toggleSearch = () => searchView.classList.toggle('active');
+addEventOnElement(searchTogglers, 'click', toggleSearch);
 
 
-    const hourlyResponse = await fetch(`${WEATHER_MAP_API_HOURLY}lat=${lat}&lon=${lon}&appid=${WEATHER_MAP_API_KEY}`)
-    console.log(hourlyResponse);
+// SEARCH INTEGRATION
+const searchField = document.querySelector('[data-search-field]');
+const searchResult = document.querySelector('[data-search-result]');
 
-    if (!hourlyResponse.ok) throw new Error('Error GETTING data')
+let searchTimeout = null;
+const searchTimeoutDuration = 500;
 
-    const hourlyData = await hourlyResponse.json();
-    console.log(hourlyData);
+searchField.addEventListener('input', function () {
 
+  searchTimeout ?? clearTimeout(searchTimeout);
 
-
-  } catch (error) {
-    console.error(error);
+  if (!searchField.value) {
+    searchResult.classList.remove('active');
+    searchResult.innerHTML = '';
+    searchField.classList.remove('searching');
+  } else {
+    searchField.classList.add('searching');
   }
 
-}
-currentWeatherAPI('prabumulih');
+  if (searchField.value) {
+
+    searchTimeout = setTimeout(async () => {
+
+      const locations = await fetchData(url.geo(searchField.value))
+
+      console.log(locations);
+
+      searchField.classList.remove('searching');
+      searchResult.classList.add('active');
+      searchResult.innerHTML = `
+        <ul class="view-list" data-search-list></ul>
+      `;
+
+      const /**{NodeList} | [] */ items = [];
+
+      locations.forEach(({ name, lat, lon, country, state }) => {
+        const searchItem = document.createElement('li');
+        searchItem.classList.add('view-item');
+
+        searchItem.innerHTML = `
+          <span class="m-icon">
+            <i class="fa-solid fa-location-dot fa-xl" style="color:  #f4f4f4;">
+            </i>
+          </span>
+
+          <div>
+            <p class="item-title">${name}</p>
+            <p class="label-2 item-subtitle">${state || ''}, ${country}</p>
+          </div>
+
+          <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link" aria-label="${name} weather" data-search-toggler></a>
+        `;
+
+        searchResult.querySelector('[data-search-list]').appendChild(searchItem)
+
+        items.push(searchItem.querySelector('[data-search-toggler]'))
+
+        addEventOnElement(items, 'click', () => {
+          toggleSearch()
+          searchResult.classList.remove('active')
+        })
 
 
+      });
+    }, searchTimeoutDuration)
+  }
+});
 
-
-// getPosition().then(position => console.log(position));
-
-// const whereAmI = function () {
-//   getPosition()
-//     .then(position => {
-//       const { latitude: lat, longitude: lng } = position.coords;
-//       return fetch(`https://geocode.xyz/${lat},${lng}?json=1`);
-//     })
-//     .then(response => {
-
-//       if (!response.ok) {
-//         throw new Error(
-//           `Hang a second and Try Again! Error (${response.status}) `
-//         );
-//       }
-
-//       return response.json();
-//     })
-//     .then(data => {
-//       console.log(data);
-//       console.log(`You are in ${data.city}, ${data.country}`);
-
-//       return fetch(`https://restcountries.com/v2/name/${data.country}`); //
-//     })
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error(`Country not found (${response.status}) `);
-//       }
-
-//       return response.json();
-//     })
-//     .then(data => {
-//       console.log(data);
-//       renderCountry(data[0]);
-//     })
-//     .catch(err => {
-//       console.error(`${err}💥`);
-//       // renderError(`${err.message}`)
-//     })
-//     .finally(() => {
-//       countriesContainer.style.opacity = 1;
-//     });
-// };
-
-// btn.addEventListener('click', whereAmI);
-
-
-// const apiCall = async function () {
-//   try {
-//     const data = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Prabumulih&appid=6717f6f86640f48b045c6df37d3ec6a2'
-//     )
-//     console.log(data);
-
-//     const response = await data.json();
-//     console.log(response);
-
-//   } catch {
-
-//   }
-
-// }
-
-// apiCall();
-
-
-// const WEATHER_API = 'https://api.weatherapi.com/v1/current.json?key=5496df2b6a93400cb0952759232503'
-// const WEATHER_MAP_API = 'api.openweathermap.org/data/2.5/weather?q='
-// const WEATHER_MAP_API_KEY = '6717f6f86640f48b045c6df37d3ec6a2'
-
-// const currentWeatherAPI = async function (location) {
-//   try {
-//     // const response = await fetch(`${WEATHER_API}&q=${location}`)
-//     // const response = await fetch(`${WEATHER_MAP_API}${location}&APPID=${WEATHER_MAP_API_KEY}`)
-//     const response = await fetch(`api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=6717f6f86640f48b045c6df37d3ec6a2`)
-//     console.log(response);
-
-//     if (!response.ok) throw new Error('Error GETTING data')
-
-//     const data = await response.json();
-//     console.log(data);
-
-//   } catch (error) {
-//     console.error(error);
-//   }
-
-// }
-
-// currentWeatherAPI('prabumulih'); 
+export const updateWeather = function () { };
+export const error404 = function () { };
