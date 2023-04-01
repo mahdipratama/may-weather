@@ -427,7 +427,7 @@ sup {
     all: unset;
     display: block;
     position: relative;
-    width: 560px;
+    width: 400px;
     animation: none;
   }
   .header .container .search-view:not(:focus-within) .search-result {
@@ -456,7 +456,7 @@ sup {
     all: unset;
     display: block;
     position: relative;
-    width: 500px;
+    width: 400px;
     animation: none;
   }
 }
@@ -546,7 +546,7 @@ sup {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%;
+    width: 116%;
     max-height: 260px;
     border-radius: 0 0 var(--radius-28) var(--radius-28);
     border-block-start: 1px solid var(--outline);
@@ -591,6 +591,11 @@ sup {
 @media (min-width: 768px) {
   .header .container .header-actions {
     gap: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .header .container .header-actions .icon-btn {
+    visibility: hidden;
   }
 }
 .header .container .header-actions .icon-btn .icon {
