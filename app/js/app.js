@@ -110,7 +110,7 @@ const errorContent = document.querySelector('[data-error-content]');
 export const updateWeather = async function (lat, lon) {
 
   // loading.style.display = 'grid';
-  container.style.overflowY = 'hidden';
+  // container.style.overflowY = 'hidden';
   container.classList.remove('fade-in');
   errorContent.style.display = 'none';
 
@@ -150,10 +150,10 @@ export const updateWeather = async function (lat, lon) {
 
   const [{ description, icon }] = weather;
 
-  const card = document.createElement('div');
-  card.classList.add('card', 'card-lg', 'current-weather-card');
+  const cardCurrentWeather = document.createElement('div');
+  cardCurrentWeather.classList.add('card', 'card-lg', 'current-weather-card');
 
-  card.innerHTML = `
+  cardCurrentWeather.innerHTML = `
     <h2 class="title-2 card-title">Now</h2>
 
     <div class="weapper">
@@ -187,7 +187,157 @@ export const updateWeather = async function (lat, lon) {
     </ul>
   `;
 
-  currentWeatherSection.appendChild(card);
+  currentWeatherSection.appendChild(cardCurrentWeather);
+
+
+
+  //////////////////////////
+  // TODAY'S HIGHLIGHTS
+  const airPollution = await fetchData(url.airPollution(lat, lon));
+
+  const [{
+    main: { aqi },
+    components: { no2, o3, so2, pm2_5 },
+  }] = airPollution.list;
+
+  const cardHighlights = document.createElement('div');
+  cardHighlights.classList.add('card', 'card-lg');
+
+  cardHighlights.innerHTML = `
+  <h2 class="title-2" id="highlights-label">
+  Today's Highlights
+  </h2>
+
+  <div class="highlight-list">
+
+  <div class="card card-sm highlight-card one">
+
+    <h3 class="title-3">
+      Air Quality Index
+    </h3>
+
+    <div class="wrapper">
+      <span class="m-icon">
+        <img src="./app/icons/wind.png" alt="wind" width="32" height="32">
+      </span>
+
+      <ul class="card-list">
+
+        <li class="card-item">
+          <p class="title-1">${pm2_5.toPrecision(3)}</p>
+          <p class="label-1">
+            PM<sub>2.5</sub>
+          </p>
+        </li>
+
+        <li class="card-item">
+          <p class="title-1">${so2.toPrecision(3)}</p>
+          <p class="label-1">
+            50<sub>2</sub>
+          </p>
+        </li>
+
+        <li class="card-item">
+          <p class="title-1">${no2.toPrecision(3)}</p>
+          <p class="label-1">
+            NO<sub>2</sub>
+          </p>
+        </li>
+
+        <li class="card-item">
+          <p class="title-1">${o3.toPrecision(3)}</p>
+          <p class="label-1">
+            O<sub>3</sub>
+          </p>
+        </li>
+
+      </ul>
+    </div>
+
+    <span class="badge aqi-${aqi} label-${aqi}" title="${module.aqiText[aqi].message}">${module.aqiText[aqi].level}
+    </span>
+
+  </div>
+
+  <div class="card card-sm highlight-card two">
+    <h3 class="title-3">Sunrise & Sunset</h3>
+
+    <div class="card-list">
+      <div class="card-item">
+        <span class="m-icon">
+          <img src="./app/icons/sunrise.png" alt="sunrise" width="50" height="50">
+        </span>
+        <div>
+          <p class="label-1">Sunrise</p>
+          <p class="title-1">${module.getTime(sunriseUnixUTC, timezone)}</p>
+        </div>
+      </div>
+
+      <div class="card-item">
+        <span class="m-icon">
+          <img src="./app/icons/sunset.png" alt="sunset" width="50" height="50">
+        </span>
+        <div>
+          <p class="label-1">Sunset</p>
+          <p class="title-1">${module.getTime(sunsetUnixUTC, timezone)}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card card-sm highlight-card">
+    <h3 class="title-3">Humidity</h3>
+    <div class="wrapper">
+      <span class="m-icon">
+        <img src="./app/icons/humidity.png" alt="humidity" width="32" height="32">
+      </span>
+      <p class="title-1">
+        ${humidity}<sub>%</sub>
+      </p>
+    </div>
+  </div>
+
+  <div class="card card-sm highlight-card">
+    <h3 class="title-3">Pressure</h3>
+    <div class="wrapper">
+      <span class="m-icon">
+        <img src="./app/icons/haze.png" alt="pressure" width="32" height="32">
+      </span>
+      <p class="title-1">
+        ${pressure}<sub>hPa</sub>
+      </p>
+    </div>
+  </div>
+
+  <div class="card card-sm highlight-card">
+    <h3 class="title-3">Visibility</h3>
+    <div class="wrapper">
+      <span class="m-icon">
+        <img src="./app/icons/visibility.png" alt="visibility" width="32" height="32">
+      </span>
+      <p class="title-1">
+        ${visibility / 1000}<sup>km</sup>
+      </p>
+    </div>
+  </div>
+
+  <div class="card card-sm highlight-card">
+    <h3 class="title-3">Feels Like</h3>
+    <div class="wrapper">
+      <span class="m-icon">
+        <img src="./app/icons/thermometer .png" alt="feels like" width="32" height="32">
+      </span>
+      <p class="title-1">
+        ${parseInt(feels_like)}&deg;<sup>c</sup>
+      </p>
+    </div>
+  </div>
+
+</div>
+  `;
+
+  highlightSection.appendChild(cardHighlights);
 
 };
 
