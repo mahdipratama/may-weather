@@ -16,7 +16,9 @@ const addEventOnElement = function (elements, eventType, callback) {
   })
 };
 
+//////////////////////////
 // Toggle search on mobile 
+
 const searchView = document.querySelector('[data-search-view]');
 const searchTogglers = document.querySelectorAll('[data-search-toggler]');
 
@@ -24,7 +26,9 @@ const toggleSearch = () => searchView.classList.toggle('active');
 addEventOnElement(searchTogglers, 'click', toggleSearch);
 
 
+//////////////////////////
 // SEARCH INTEGRATION
+
 const searchField = document.querySelector('[data-search-field]');
 const searchResult = document.querySelector('[data-search-result]');
 
@@ -49,7 +53,7 @@ searchField.addEventListener('input', function () {
 
       const locations = await fetchData(url.geo(searchField.value))
 
-      console.log(locations);
+      // console.log(locations);
 
       searchField.classList.remove('searching');
       searchResult.classList.add('active');
@@ -103,9 +107,9 @@ const errorContent = document.querySelector('[data-error-content]');
  * @param {number} lat Latitude
  * @param {number} lon Longitude
  */
-export const updateWeather = function (lat, lon) {
+export const updateWeather = async function (lat, lon) {
 
-  loading.style.display = 'grid';
+  // loading.style.display = 'grid';
   container.style.overflowY = 'hidden';
   container.classList.remove('fade-in');
   errorContent.style.display = 'none';
@@ -125,6 +129,65 @@ export const updateWeather = function (lat, lon) {
   } else {
     currentLocationBtn.removeAttribute('disabled')
   }
+
+
+  //////////////////////////
+  // CURRENT WEATHER SECTION 
+  const currentWeather = await fetchData(url.currentWeather(lat, lon))
+
+  const [{ name, country }] = await fetchData(url.reverseGeo(lat, lon))
+
+  console.log(currentWeather);
+
+  const {
+    weather,
+    dt: dateUnix,
+    sys: { sunrise: sunriseUnixUTC, sunset: sunsetUnixUTC },
+    main: { temp, feels_like, pressure, humidity },
+    visibility,
+    timezone
+  } = currentWeather
+
+  const [{ description, icon }] = weather;
+
+  const card = document.createElement('div');
+  card.classList.add('card', 'card-lg', 'current-weather-card');
+
+  card.innerHTML = `
+    <h2 class="title-2 card-title">Now</h2>
+
+    <div class="weapper">
+
+      <p class="heading">${parseInt(temp)}&deg;<sup>c</sup></p>
+      <img src="./app/icons/${icon}.png" width="64" height="64" alt="${description}" class="weather-icon">
+
+    </div>
+
+    <p class="body-3">${description}</p>
+
+    <ul class="meta-list">
+      <li class="meta-item">
+        <span class="m-icon">
+          <i class="fa-regular fa-calendar fa-lg" style="color: #f4f4f4;">
+          </i>
+        </span>
+        <p class="title-3 meta-text">
+          ${module.getDate(dateUnix, timezone)}
+        </p>
+      </li>
+
+      <li class="meta-item">
+        <span class="m-icon">
+          <i class="fa-solid fa-location-dot fa-xl" style="color:  #f4f4f4;">
+          </i>
+        </span>
+        <p class="title-3 meta-text
+        data-location">${name}, ${country}</p>
+      </li>
+    </ul>
+  `;
+
+  currentWeatherSection.appendChild(card);
 
 };
 
