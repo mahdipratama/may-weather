@@ -57,6 +57,21 @@ export const getTime = function (timeUnix, timezone) {
 
 /**
  * 
+ * @param {number} timeUnix Unix date in seconds 
+ * @param {number} timezone Timezone shift from UTC in seconds  
+ * @returns {string} Time string. format: "HH AM/PM"
+ */
+export const getHours = function (timeUnix, timezone) {
+  const date = new Date((timeUnix + timezone) * 1000);
+  const hours = date.getUTCHours();
+  const period = hours >= 12 ? 'PM' : 'AM';
+
+  return `${hours % 12 || 12} ${period}`;
+}
+
+
+/**
+ * 
  * @param {number} mps Meter per seconds  
  * @returns {number} Kilometer per hours 
  */
