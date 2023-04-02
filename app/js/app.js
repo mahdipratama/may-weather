@@ -466,8 +466,7 @@ export const updateWeather = async function (lat, lon) {
     container.classList.remove('fade-in');
 
   });
-
 };
 
 
-export const error404 = function () { };
+export const error404 = () => errorContent.style.display = 'flex';
