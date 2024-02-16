@@ -67,7 +67,7 @@ I build this weather.app with Vanilla.js and Sass, it's help me to retrain my kn
 - Mobile-first approach
 - Flex Layout
 - [SASS](https://sass-lang.com/documentation/modules) - Sass modules
-- [Openeathermap API](https://openweathermap.org/) - weather API
+- [Openweathermap API](https://openweathermap.org/) - weather API
 
 ## Instruction
 
